@@ -1,11 +1,10 @@
 import Head from 'next/head'
-import { getBlogPosts } from '../lib/contentful'
+import { Link } from '../components/atoms/Link'
 import styles from '../styles/Home.module.css'
 
-type Props = { posts: any }
+type Props = {}
 
-const Home: React.FC<Props> = ({ posts }) => {
-  console.log(posts)
+const Home: React.FC<Props> = ({ }) => {
   return (
     <div className={styles.container}>
       <Head>
@@ -28,6 +27,11 @@ const Home: React.FC<Props> = ({ posts }) => {
             <h3>Documentation &rarr;</h3>
             <p>Find in-depth information about Next.js features and API.</p>
           </a>
+
+          <Link href="/blogs" className={styles.card}>
+            <h3>Blogs &rarr;</h3>
+            <p>my blog posts</p>
+          </Link>
 
           <a href="https://nextjs.org/learn" className={styles.card}>
             <h3>Learn &rarr;</h3>
@@ -68,12 +72,3 @@ const Home: React.FC<Props> = ({ posts }) => {
   )
 }
 export default Home
-
-// export async function getStaticProps() {
-//   const posts = await getBlogPosts()
-//   return {
-//     props: {
-//       posts
-//     }
-//   }
-// }
