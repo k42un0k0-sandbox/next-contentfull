@@ -69,11 +69,11 @@ const Home: React.FC<Props> = ({ posts }) => {
 }
 export default Home
 
-export async function getStaticProps() {
-  const posts = await getBlogPosts()
-  return {
-    props: {
-      posts
-    }
-  }
-}
+// export async function getStaticProps() {
+//   const posts = await getBlogPosts()
+//   return {
+//     props: {
+//       posts
+//     }
+//   }
+// }
