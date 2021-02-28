@@ -1,8 +1,11 @@
 import { createClient } from 'contentful'
+import { BuildMode } from '../../constants/env'
 import { BlogPost, BlogPostField } from './model/blogPost'
+
 const client = createClient({
     space: process.env.CONTENTFUL_SPACE_ID,
-    accessToken: process.env.CONTENTFUL_ACCESS_TOKEN
+    accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+    host: BuildMode.isPreview() ? "preview.contentful.com" : "cdn.contentful.com",
 })
 
 export async function getPeople() {

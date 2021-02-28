@@ -38,11 +38,15 @@ const BlogsShow: React.FC<Props> = ({ post }) => {
 export default BlogsShow
 
 const getStaticProps: GetStaticProps<Props, { slug: string }> = async ({ params }) => {
-    const post = await getBlogPost(params.slug)
-    return {
-        props: {
-            post
+    try {
+        const post = await getBlogPost(params.slug)
+        return {
+            props: {
+                post
+            }
         }
+    } catch (e) {
+        return { notFound: true }
     }
 }
 
@@ -57,7 +61,7 @@ const getStaticPaths: GetStaticPaths = async () => {
 
     // We'll pre-render only these paths at build time.
     // { fallback: false } means other routes should 404.
-    return { paths, fallback: process.env.BUILD_MODE == BuildMode.preview }
+    return { paths, fallback: BuildMode.isPreview() }
 }
 
 export { getStaticProps, getStaticPaths }

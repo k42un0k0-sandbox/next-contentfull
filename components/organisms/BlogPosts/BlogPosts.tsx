@@ -10,8 +10,8 @@ const BlogPosts: React.FC<Props> = ({ blogPosts }) => {
     return (
         <section>
             {blogPosts.map((post) => {
-                return <Link href={`/blogs/${post.sys.id}`}>
-                    <article key={post.sys.id}>
+                return <Link href={`/blogs/${post.sys.id}`} key={post.sys.id}>
+                    <article>
                         <BlogTitle>
                             {post.fields.title}
                         </BlogTitle>
