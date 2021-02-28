@@ -1,12 +1,11 @@
 import Head from 'next/head'
-import { BlogPosts } from '../components/organisms/BlogPosts'
-import { getBlogPosts } from '../lib/contentful'
-import styles from '../styles/Home.module.css'
+import { BlogPosts } from '../../components/organisms/BlogPosts'
+import { getBlogPosts } from '../../lib/contentful/client'
+import styles from '../../styles/Home.module.css'
 
 type Props = { posts: any }
 
-const Home: React.FC<Props> = ({ posts }) => {
-  console.log(posts)
+const BlogsIndex: React.FC<Props> = ({ posts }) => {
   return (
     <div className={styles.container}>
       <Head>
@@ -20,7 +19,7 @@ const Home: React.FC<Props> = ({ posts }) => {
     </div>
   )
 }
-export default Home
+export default BlogsIndex
 
 export async function getStaticProps() {
   const posts = await getBlogPosts()

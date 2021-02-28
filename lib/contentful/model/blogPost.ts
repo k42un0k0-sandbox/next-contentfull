@@ -4,59 +4,15 @@
  */
 
 import { Document } from "@contentful/rich-text-types";
+import { Entry } from "contentful";
 
-export interface BlogPost {
-    sys: Sys;
-    fields: Fields;
-}
-
-interface Sys {
-    space: Space;
-    id: string;
-    type: string;
-    createdAt: Date;
-    updatedAt: Date;
-    environment: Environment;
-    revision: number;
-    contentType: ContentType;
-    locale: string;
-}
-
-interface Space {
-    sys: Sys2;
-}
-
-interface Sys2 {
-    type: string;
-    linkType: string;
-    id: string;
-}
-
-interface Environment {
-    sys: Sys3;
-}
-
-interface Sys3 {
-    id: string;
-    type: string;
-    linkType: string;
-}
-
-interface ContentType {
-    sys: Sys4;
-}
-
-interface Sys4 {
-    type: string;
-    linkType: string;
-    id: string;
-}
-
-interface Fields {
+export type BlogPostField = {
     title: string;
     body: Document;
     images: Image[];
 }
+
+export type BlogPost = Entry<BlogPostField>
 
 interface Image {
     sys: Sys5;
