@@ -1,5 +1,4 @@
 import { BlogPost } from "../../../lib/contentful/model/blogPost"
-import BlogBody from "./BlogBody"
 import BlogTitle from "./BlogTitle"
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
