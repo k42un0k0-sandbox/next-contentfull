@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import { BlogPosts } from '../../components/organisms/BlogPosts'
-import { getBlogPosts } from '../../lib/contentful/client'
+import { client } from '../../lib/contentful/client'
 import styles from '../../styles/Home.module.css'
 
 type Props = { posts: any }
@@ -22,7 +22,7 @@ const BlogsIndex: React.FC<Props> = ({ posts }) => {
 export default BlogsIndex
 
 export async function getStaticProps() {
-  const posts = await getBlogPosts()
+  const posts = await client.getBlogPosts()
   return {
     props: {
       posts
